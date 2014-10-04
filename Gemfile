@@ -54,7 +54,7 @@ group :test, :development do
   gem "capybara"
 end
 
-group :tes do
+group :test do
   gem "launchy"
   gem "simplecov"
 end
@@ -64,3 +64,6 @@ gem "figaro"
 gem "twitter-bootstrap-rails"
 gem "pg", group: :production
 gem "rails_12factor", group: :production
+gem "haml-rails"
+gem "erb2haml"
+gem "paperclip"

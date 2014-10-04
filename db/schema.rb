@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004131637) do
+ActiveRecord::Schema.define(version: 20141004204503) do
+
+  create_table "guesses", force: true do |t|
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "survey_id"
+  end
+
+  create_table "surveys", force: true do |t|
+    t.string   "image"
+    t.string   "creator_answer"
+    t.string   "choices"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -26,6 +43,7 @@ ActiveRecord::Schema.define(version: 20141004131637) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
