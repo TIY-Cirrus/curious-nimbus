@@ -1,8 +1,15 @@
 class SurveysController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   def create
     @survey = current_user.surveys.create survey_params
+    respond_to do |format|
+      if @survey.save
+        format.json { render json: @survey }
+      else
+        format.json  { render json: @survey.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def index
@@ -23,6 +30,6 @@ class SurveysController < ApplicationController
 
   private
     def survey_params
-      require(:survey).permit(:image_url, :creator_answer, :choices)
+      params.permit(:image, :creator_answer, :choices => [] )
     end
 end
