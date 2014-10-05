@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :guesses, only: [:create, :show]
 
-  resources :surveys, only: [:index, :create, "show"]
+  resources :surveys, only: [:index, :create, :show]
 
   devise_for :users
   root to: "surveys#index"
