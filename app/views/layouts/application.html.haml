@@ -27,42 +27,38 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
   %body
-    .navbar.navbar-default.navbar-static-top
-      .container
-        %button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand{:href => "#"} CuriousNimbus
-        .navbar-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li= link_to "Link1", "/path1"
-            %li= link_to "Link2", "/path2"
-            %li= link_to "Link3", "/path3"
-          %ul.nav.navbar-nav.pull-right
-            - if current_user
-              %li= link_to current_user.email, edit_user_registration_path
-              %li= link_to "Log out", destroy_user_session_path, method: :delete
-            - else
-              %li= link_to "Log in", new_user_session_path
-              %li= link_to "Sign up", new_user_registration_path
+    %header
+      %a{:href => "index.html"}
+        %img.logo{:src => "http://f.cl.ly/items/0P3k1S2r233o2K2Y193a/Straight%20logo%20cloud%20compressed.png"}/
+      %a{:href => "guess.html"}
+        %img.questionmark{:src => "http://f.cl.ly/items/0U0t1Z210R3G3v2J3y0m/question%20mark%20cloud.png"}/
+      %a{:href => "camera.html"}
+        %img.camera{:src => "http://f.cl.ly/items/3l0b0S3x2Q1K0A3r1H41/clound%20white.png"}/
+      %a{:href => "index.html"}
+        %img.home{:src => "http://f.cl.ly/items/430W0g1H0f3v3k272520/white%20house%20clouds.png"}/
+      - if current_user
+        %li= link_to current_user.email, edit_user_registration_path
+        %li= link_to "Log out", destroy_user_session_path, method: :delete
+      - else
+        %li= link_to "Log in", new_user_session_path
+        %li= link_to "Sign up", new_user_registration_path
 
     .container
       .row
         .col-lg-9
-          = bootstrap_flash
           = yield
         .col-lg-3
-          .well.sidebar-nav
-            %h3 Sidebar
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link1", "/path1"
-              %li= link_to "Link2", "/path2"
-              %li= link_to "Link3", "/path3"
-          / /.well
-        / /span
-      / /row
       %footer
-        %p &copy; Company 2014
-    / /container
+        .navbar
+          %p
+            about  |  blog  |  jobs  |  guess  |  profile
+      / build:js scripts/vendor.js
+      / bower:js
+      %script{:src => "../bower_components/jquery/dist/jquery.js"}
+      %script{:src => "../bower_components/underscore/underscore.js"}
+      / endbower
+      / endbuild
+      / build:js scripts/main.js
+      %script{:src => "scripts/main.js"}
+      / endbuild
+      / /container
