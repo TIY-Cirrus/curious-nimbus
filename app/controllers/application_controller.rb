@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
       super
     end
   end
+
+  def api_request?
+    request.headers["HTTP_AUTH_TOKEN"].present?
+  end
 end

@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!, unless: :api_request?
 
   def create
     @survey = current_user.surveys.create survey_params
@@ -30,6 +30,6 @@ class SurveysController < ApplicationController
 
   private
     def survey_params
-      params.permit(:image, :creator_answer, :choices => [] )
+      params.permit(:picture, :creator_answer, :choices => [] )
     end
 end
