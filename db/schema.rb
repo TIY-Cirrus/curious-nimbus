@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004204503) do
+ActiveRecord::Schema.define(version: 20141005132217) do
 
   create_table "guesses", force: true do |t|
     t.string   "answer"
@@ -22,12 +22,15 @@ ActiveRecord::Schema.define(version: 20141004204503) do
   end
 
   create_table "surveys", force: true do |t|
-    t.string   "image"
     t.string   "creator_answer"
     t.string   "choices"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "users", force: true do |t|
