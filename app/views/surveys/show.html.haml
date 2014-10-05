@@ -1,2 +1,56 @@
-%h1 Surveys#show
-%p Find me in app/views/surveys/show.html.erb
+-# %h1 Surveys#show
+-# %p Find me in app/views/surveys/show.html.erb
+!!!
+%html.no-js
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "width=device-width, initial-scale=1, minimal-ui", :name => "viewport"}/
+    %title Clouds
+    / Place favicon.ico and apple-touch-icon.png in the root directory
+    / build:css styles/vendor.css
+    / bower:css
+    %link{:href => "../bower_components/normalize-css/normalize.css", :rel => "stylesheet"}/
+    / endbower
+    / endbuild
+    / build:css styles/main.css
+    %link{:href => "styles/main.css", :rel => "stylesheet"}/
+    %link{:href => "<link href='http://fonts.googleapis.com/css?family=Raleway+Dots|Raleway:100' rel='stylesheet' type='text/css'>"}/
+    / endbuild
+    / build:js scripts/vendor/modernizr.js
+    %script{:src => "../bower_components/modernizr/modernizr.js"}
+    / endbuild
+  %body
+    %header
+      %a{:href => "index.html"}
+        %img.logo{:src => "http://f.cl.ly/items/0P3k1S2r233o2K2Y193a/Straight%20logo%20cloud%20compressed.png"}/
+      %a{:href => "guess.html"}
+        %img.questionmark{:src => "http://f.cl.ly/items/0U0t1Z210R3G3v2J3y0m/question%20mark%20cloud.png"}/
+      %a{:href => "camera.html"}
+        %img.camera{:src => "http://f.cl.ly/items/3l0b0S3x2Q1K0A3r1H41/clound%20white.png"}/
+      %a{:href => "index.html"}
+        %img.home{:src => "http://f.cl.ly/items/430W0g1H0f3v3k272520/white%20house%20clouds.png"}/
+    %section
+      %img.guesses{:src => "http://www.wired.com/wp-content/uploads/blogs/insights/wp-content/uploads/2012/11/clouds_660.jpg"}/
+      %button.a A: Butterfly
+      %br/
+      %button.b B: Dragon
+      %br/
+      %button.c C: Mouse
+      %br/
+      %button.d D: Cow
+    %aside
+      %img{:src => "http://www.alfred.edu/gallery/images/arrow_right.gif"}/
+    %footer
+      .navbar
+        %p
+          about  |  blog  |  jobs  |  guess  |  profile
+    / build:js scripts/vendor.js
+    / bower:js
+    %script{:src => "../bower_components/jquery/dist/jquery.js"}
+    %script{:src => "../bower_components/underscore/underscore.js"}
+    / endbower
+    / endbuild
+    / build:js scripts/main.js
+    %script{:src => "scripts/main.js"}
+    / endbuild
